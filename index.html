@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>À louer, avec vue — Kouba</title>
+<meta name="description" content="Appartement de 120 m², 3 chambres, 12e étage, Tour 4 LPP L'Appreval, Kouba. Salle de bain et WC refaits à neuf. 120 000 DA / mois, négociable.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE: plain, factual Algerian French; a good listing, not a brochure.
+   IDEA: the LPP tower itself: ochre and grey facade bands, a lift display reading 12.
+   PICTURE: the 12th-floor balcony view, full width under a giant "L'Appreval" wordmark; then a drawn map of the real streets.
+   COLOUR and TYPE: warm paper, near-black ink, facade ochre as the one accent. Inter Tight with italic accents, Inter for text.
+   LAYOUT: Swiss editorial grid, 1240px, big numbers row, sections divided by hairlines, one ochre contact band. */
+:root{color-scheme:light dark;
+--bg:light-dark(#f3f0e9,#121110);--bg2:light-dark(#e9e4d9,#1b1a18);--ink:light-dark(#151412,#efebe3);
+--mute:light-dark(#6d6962,#a39e94);--line:light-dark(#d6d0c3,#34312c);--ochre:#dfa224;--ochre-ink:#151412;
+--road:light-dark(#151412,#e9e4d9);--minor:light-dark(#c9c2b3,#3c3934);--map:light-dark(#ebe6db,#191816)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+[hidden]{display:none!important}
+.wrap{max-width:1240px;margin:0 auto;padding:0 max(4vw,16px)}
+.band{padding:clamp(48px,7vw,104px) 0;border-top:1px solid var(--line)}
+h1,h2,h3{font-family:"Inter Tight",Inter,sans-serif;font-weight:600;letter-spacing:-.02em;margin:0;text-wrap:balance}
+h2{font-size:clamp(32px,4.4vw,52px);line-height:1.04}
+h2 i,.word i{font-weight:500}
+h3{font-size:20px;line-height:1.2}
+p{margin:0}
+.lead{font-size:17px;max-width:62ch}
+.mute{color:var(--mute)}
+.small{font-size:13px}
+.kicker{display:flex;gap:10px;align-items:center;font-size:14px;color:var(--mute);margin-bottom:18px}
+.kicker b{color:var(--ink);font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:0 20px;border-radius:999px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);font:600 15px/1 Inter,sans-serif;text-decoration:none;cursor:pointer;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn svg{width:18px;height:18px;flex:none}
+:focus-visible{outline:2px solid var(--ochre);outline-offset:3px}
+/* header */
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;gap:24px;height:64px}
+.brand{font:600 16px "Inter Tight",sans-serif;text-decoration:none;display:flex;gap:10px;align-items:center;white-space:nowrap}
+.lift{display:inline-grid;place-items:center;min-width:30px;height:24px;padding:0 6px;border-radius:5px;background:var(--ink);color:var(--ochre);font:600 13px/1 "Inter Tight",sans-serif;font-variant-numeric:tabular-nums}
+nav{display:flex;gap:22px;margin-left:auto;font-size:14px}
+nav a{text-decoration:none;color:var(--mute)}nav a:hover{color:var(--ink)}
+.hd .btn{min-height:40px;padding:0 16px;font-size:14px}
+/* hero */
+.hero{padding-top:clamp(20px,3vw,40px)}
+.word{font-size:clamp(56px,11vw,168px);line-height:.88;letter-spacing:-.05em;margin:0 0 clamp(18px,2.4vw,30px) -.03em}
+.word span{white-space:nowrap}
+.htop{display:flex;justify-content:space-between;align-items:end;gap:20px 32px;flex-wrap:wrap;margin-bottom:clamp(18px,2.4vw,30px)}
+.htop .word{margin:0}
+.htop>div:first-child{flex:0 1 auto}
+.price{margin-left:auto;align-items:flex-end;text-align:right}
+.price{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding-bottom:6px}
+.price b{font:600 clamp(26px,3vw,38px)/1 "Inter Tight",sans-serif;letter-spacing:-.02em;white-space:nowrap}
+.price b small{font-size:.5em;font-weight:500;color:var(--mute);letter-spacing:0}
+.nego{display:inline-flex;align-items:center;gap:8px;background:var(--ochre);color:var(--ochre-ink);font:600 15px/1 Inter,sans-serif;padding:9px 13px;border-radius:999px;white-space:nowrap}
+.nego::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ochre-ink)}
+.sub{font-size:clamp(16px,1.6vw,19px);margin-top:10px;color:var(--mute)}
+.sub b{color:var(--ink);font-weight:600}
+.mbar{display:none}
+.heroimg{position:relative;border-radius:4px;overflow:hidden;aspect-ratio:16/8.4;background:var(--bg2)}
+.heroimg img{width:100%;height:100%;object-fit:cover;object-position:50% 58%}
+.tag{position:absolute;left:16px;bottom:16px;display:flex;gap:10px;align-items:center;background:var(--ochre);color:var(--ochre-ink);padding:10px 14px;border-radius:4px;font:600 15px "Inter Tight",sans-serif}
+.tag svg{width:14px;height:14px}
+.meta{position:absolute;right:16px;top:16px;background:rgba(21,20,18,.72);color:#f3f0e9;padding:8px 12px;border-radius:4px;font-size:13px}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-bottom:1px solid var(--line)}
+.facts div{padding:22px 18px 22px 0;border-right:1px solid var(--line)}
+.facts div+div{padding-left:18px}.facts div:last-child{border-right:0}
+.facts b{display:block;font:600 clamp(26px,3.4vw,44px)/1 "Inter Tight",sans-serif;letter-spacing:-.03em;white-space:nowrap}
+.facts span{font-size:14px;color:var(--mute)}.facts strong{color:var(--ink);font-weight:600}
+/* intro */
+.two{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(28px,5vw,80px);align-items:start}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:14px;background:var(--bg);white-space:nowrap}
+.intro p+p{margin-top:14px}
+/* before after */
+.ba{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:clamp(24px,4vw,56px);margin-top:36px;align-items:start}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.tabs button{font:500 14px Inter,sans-serif;min-height:40px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.cmp{position:relative;overflow:hidden;border-radius:4px;background:var(--bg2);aspect-ratio:4/3;--p:50%;touch-action:pan-y;user-select:none;margin:0 auto}
+.cmp.portrait{aspect-ratio:3/4;max-width:560px}
+.cmp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cmp .bef{clip-path:inset(0 calc(100% - var(--p)) 0 0);filter:saturate(.85)}
+.cmp .bar{position:absolute;top:0;bottom:0;left:var(--p);width:2px;margin-left:-1px;background:#fff;pointer-events:none}
+.cmp .knob{position:absolute;top:50%;left:var(--p);width:48px;height:48px;margin:-24px 0 0 -24px;border-radius:50%;background:var(--ochre);display:grid;place-items:center;pointer-events:none;box-shadow:0 4px 18px rgba(0,0,0,.25)}
+.cmp .knob svg{width:22px;height:22px}
+.cmp .lb{position:absolute;top:12px;padding:6px 10px;border-radius:3px;font:600 13px Inter,sans-serif;pointer-events:none}
+.cmp .l1{left:12px;background:rgba(21,20,18,.78);color:#fff}.cmp .l2{right:12px;background:var(--ochre);color:var(--ochre-ink)}
+.cmp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.works{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
+.works li{padding:18px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px}
+.works li b{display:block;font-weight:600;margin-bottom:2px}
+.works .n{font:600 14px "Inter Tight",sans-serif;color:var(--ochre)}
+/* equipment */
+.eq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,4vw,64px);margin-top:36px}
+.eq ul{list-style:none;padding:0;margin:14px 0 0;border-top:1px solid var(--ink)}
+.eq li{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.eq li span:last-child{color:var(--mute);text-align:right}
+/* gallery */
+.ghead{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.strip{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 0 18px;margin-top:22px;scrollbar-width:thin}
+.strip button{flex:none;width:clamp(260px,38vw,520px);aspect-ratio:4/3;scroll-snap-align:start;border:0;padding:0;border-radius:4px;overflow:hidden;background:var(--bg2);cursor:zoom-in;position:relative}
+.strip button.p{width:clamp(200px,25vw,345px);aspect-ratio:3/4}
+.strip img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.strip button:hover img{transform:scale(1.03)}
+.strip figcaption{position:absolute;left:10px;bottom:10px;background:rgba(21,20,18,.72);color:#fff;font-size:13px;padding:5px 9px;border-radius:3px}
+.gnav{display:flex;gap:8px;align-items:center}
+.gnav button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;display:grid;place-items:center}
+.gnav svg{width:18px;height:18px}
+.count{font-size:14px;color:var(--mute);margin-right:6px;font-variant-numeric:tabular-nums}
+/* map */
+.mapgrid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:0;margin-top:30px;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--map)}
+.mapbox{position:relative;aspect-ratio:36/25}
+.mapbox svg{position:absolute;inset:0;width:100%;height:100%}
+.side{border-left:1px solid var(--line);background:var(--bg);display:flex;flex-direction:column;max-height:100%}
+.cats{display:flex;flex-wrap:wrap;gap:6px;padding:14px;border-bottom:1px solid var(--line)}
+.cats button{font:500 13px Inter,sans-serif;min-height:36px;padding:0 12px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.cats button[aria-pressed=true]{background:var(--ochre);border-color:var(--ochre);color:var(--ochre-ink)}
+.plist{list-style:none;margin:0;padding:0;overflow-y:auto;flex:1;min-height:0}
+.plist li{display:grid;grid-template-columns:26px minmax(0,1fr) auto;gap:10px;align-items:baseline;padding:11px 14px;border-bottom:1px solid var(--line);cursor:default}
+.plist li:hover,.plist li.on{background:var(--bg2)}
+.plist .no{font:600 12px "Inter Tight",sans-serif;width:22px;height:22px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center}
+.plist .nm{font-size:15px;line-height:1.3}
+.plist .nm small{display:block;color:var(--mute);font-size:13px}
+.plist .ds{font:600 14px "Inter Tight",sans-serif;white-space:nowrap;text-align:right}
+.plist .ds small{display:block;font:400 12px Inter,sans-serif;color:var(--mute)}
+.drive{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:0;margin-top:28px;border-top:1px solid var(--ink)}
+.drive div{padding:16px 16px 16px 0;border-bottom:1px solid var(--line)}
+.drive b{display:block;font:600 30px/1 "Inter Tight",sans-serif;letter-spacing:-.02em;white-space:nowrap}
+.drive span{font-size:14px;display:block;margin-top:6px}
+.drive small{color:var(--mute);font-size:13px}
+.notes{margin-top:18px;font-size:13px;color:var(--mute);max-width:90ch}
+.legend{position:absolute;left:12px;bottom:12px;display:flex;gap:14px;flex-wrap:wrap;font-size:12px;background:color-mix(in srgb,var(--bg) 88%,transparent);padding:8px 10px;border-radius:4px}
+.legend i{display:inline-block;width:18px;height:0;border-top:3px solid var(--road);vertical-align:middle;margin-right:6px}
+.legend i.m{border-top:2px dashed var(--road)}
+.legend i.t{width:10px;height:10px;border:0;background:var(--ochre);border-radius:2px}
+/* contact */
+.contact{background:var(--ochre);color:var(--ochre-ink);padding:clamp(48px,7vw,96px) 0}
+.contact h2{font-size:clamp(40px,7vw,96px);line-height:.95;letter-spacing:-.045em}
+.cgrid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(24px,4vw,64px);align-items:end}
+.phone{font:600 clamp(30px,4.6vw,56px)/1 "Inter Tight",sans-serif;letter-spacing:-.02em;white-space:nowrap;margin:18px 0 22px}
+.contact .btn{background:var(--ochre-ink);color:var(--ochre);border-color:var(--ochre-ink)}
+.contact .btn.ghost{background:transparent;color:var(--ochre-ink)}
+.contact dl{margin:0;border-top:1px solid rgba(21,20,18,.35)}
+.contact dl div{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid rgba(21,20,18,.35)}
+.contact dt{opacity:.75}.contact dd{margin:0;font-weight:600;text-align:right}
+footer{padding:28px 0 40px;font-size:13px;color:var(--mute)}
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:50;background:rgba(12,11,10,.94);display:none;align-items:center;justify-content:center;padding:56px 64px}
+.lb.on{display:flex}
+.lb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:3px}
+.lb .x,.lb .pv,.lb .nx{position:absolute;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.4);color:#fff;cursor:pointer;display:grid;place-items:center}
+.lb svg{width:20px;height:20px}
+.lb .x{top:12px;right:12px}.lb .pv{left:12px;top:50%;margin-top:-24px}.lb .nx{right:12px;top:50%;margin-top:-24px}
+.lb p{position:absolute;bottom:14px;left:0;right:0;text-align:center;color:#ddd;font-size:14px}
+#map text{font-family:"Inter Tight",Inter,system-ui,sans-serif}
+@keyframes pulse{0%{r:8;opacity:.7}100%{r:30;opacity:0}}
+.pulse{animation:pulse 2.2s ease-out infinite;transform-box:fill-box}
+@media(prefers-reduced-motion:reduce){.pulse{animation:none;opacity:0}html{scroll-behavior:auto}.strip img{transition:none}}
+@media(max-width:900px){nav{display:none}.hd .btn{margin-left:auto}.two,.ba,.cgrid{grid-template-columns:minmax(0,1fr)}.mapgrid{grid-template-columns:minmax(0,1fr)}.side{border-left:0;border-top:1px solid var(--line)}.plist{max-height:420px}}
+@media(max-width:600px){
+.hd .btn{display:none}
+.htop{flex-direction:column;align-items:flex-start;gap:16px}
+.word{font-size:clamp(50px,15.5vw,72px)}
+.price{flex-direction:row;align-items:center;flex-wrap:wrap;gap:10px;margin-left:0;text-align:left}
+.tabs{flex-wrap:nowrap;overflow-x:auto;margin-left:-16px;margin-right:-16px;padding:0 16px 4px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}.tabs button{flex:none}
+.strip{margin-left:-16px;margin-right:-16px;padding-left:16px;scroll-padding-left:16px}
+.strip button{width:84vw}.strip button.p{width:66vw}
+.plist{max-height:none}
+.band{padding:52px 0}
+.cmp.portrait{max-width:none}
+.facts b{font-size:26px}
+.mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;gap:8px;align-items:center;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:var(--bg);border-top:1px solid var(--line);box-shadow:0 -6px 20px rgba(0,0,0,.08)}
+.mbar div{flex:1;line-height:1.15}.mbar div b{display:block;font:600 17px "Inter Tight",sans-serif;white-space:nowrap}.mbar div span{font-size:12px;color:var(--mute);white-space:nowrap}
+.mbar .btn{min-height:44px;padding:0 14px;font-size:14px}
+body{padding-bottom:76px}
+.lb{z-index:60}
+}
+@media(max-width:600px){#map g:not(#home)>text,#map g:not(#home) g>text{font-size:16px}.legend{font-size:11px;gap:8px;left:6px;bottom:6px}.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.facts div:nth-child(2){border-right:0}.facts div:nth-child(3){padding-left:0}.facts div:nth-child(-n+2){border-bottom:1px solid var(--line)}.heroimg{aspect-ratio:4/3.4}.eq{grid-template-columns:minmax(0,1fr)}.lb{padding:56px 8px 48px}.lb .pv,.lb .nx{top:auto;bottom:8px;margin:0}.meta{display:none}.brand .full{display:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap hd">
+  <a class="brand" href="#top"><span class="lift">12</span><span>À louer<span class="full"> · Kouba, L'Appreval</span></span></a>
+  <nav aria-label="Sections"><a href="#appartement">L'appartement</a><a href="#travaux">Avant / après</a><a href="#photos">Photos</a><a href="#quartier">Le quartier</a><a href="#contact">Contact</a></nav>
+  <a class="btn" id="waTop" href="#contact"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>WhatsApp</a>
+</div></header>
+
+<main id="top">
+<section class="hero wrap" aria-label="Présentation">
+  <div class="htop">
+    <div><h1 class="word"><span>À louer,</span> <span><i>avec vue</i>.</span></h1>
+    <p class="sub"><b>Appartement 120 m² · 3 chambres · 12ᵉ étage</b><br>Kouba, cité LPP de L'Appreval, Tour 4</p></div>
+    <div class="price"><b>120 000 DA <small>/ mois</small></b><span class="nego">Prix négociable</span></div>
+  </div>
+  <div class="heroimg">
+    <img src="full/vue-balcon.jpg" alt="Vue depuis le balcon du 12e étage, entre deux tours de la cité LPP, jusqu'à l'horizon" fetchpriority="high">
+    <span class="tag"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 2 12 9H2z" fill="currentColor"/></svg>12ᵉ étage · vue dégagée</span>
+    <span class="meta">Photo prise depuis le balcon de l'appartement</span>
+  </div>
+  <div class="facts">
+    <div><b>120 m²</b><span>Surface</span></div>
+    <div><b>3 chambres</b><span>+ salon et salle à manger</span></div>
+    <div><b>12ᵉ étage</b><span>2 ascenseurs</span></div>
+    <div><b>120 000 DA</b><span>par mois · <strong>négociable</strong></span></div>
+  </div>
+</section>
+
+<section class="band" id="appartement"><div class="wrap two intro">
+  <div>
+    <div class="kicker"><b>L'appartement</b></div>
+    <h2>Prêt à habiter, <i>avec la vue</i> en plus.</h2>
+  </div>
+  <div>
+    <p class="lead">Appartement de 120 m² au 12ᵉ étage de la Tour 4, à la cité LPP de L'Appreval (Kouba). Trois chambres, un séjour avec salon et salle à manger, une cuisine équipée, deux balcons et des rangements dans le couloir.</p>
+    <p class="lead">La salle de bain et les toilettes ont été entièrement refaites, et l'appartement a maintenant un faux plafond en placo avec éclairage LED. Il est loué non meublé : la cuisine reste équipée (four, plaque de cuisson, hotte et meubles).</p>
+    <div class="chips" aria-label="L'immeuble"><span class="chip">2 ascenseurs</span><span class="chip">Parking</span><span class="chip">Gardien</span><span class="chip">Caméras de surveillance</span><span class="chip">Interphone</span></div>
+  </div>
+</div></section>
+
+<section class="band" id="travaux"><div class="wrap">
+  <div class="kicker"><b>Avant / après</b></div>
+  <h2>Refait <i>à neuf</i>.</h2>
+  <p class="lead mute" style="margin-top:14px">Glissez le curseur sur la photo pour comparer l'état avant les travaux et aujourd'hui.</p>
+  <div class="ba">
+    <div>
+      <div class="tabs" role="tablist" id="baTabs"></div>
+      <div class="cmp" id="cmp">
+        <img class="aft" id="aft" alt="">
+        <img class="bef" id="bef" alt="">
+        <span class="lb l1">Avant</span><span class="lb l2">Après</span>
+        <span class="bar"></span>
+        <span class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="#151412" stroke-width="2" aria-hidden="true"><path d="m9 6-6 6 6 6M15 6l6 6-6 6"/></svg></span>
+        <input type="range" min="0" max="100" value="50" id="baRange" aria-label="Comparer avant et après">
+      </div>
+    </div>
+    <ol class="works">
+      <li><span class="n">1</span><div><b>Salle de bain entièrement refaite</b><span class="mute">Nouveau carrelage, douche à l'italienne avec paroi vitrée, meuble vasque suspendu et miroir LED.</span></div></li>
+      <li><span class="n">2</span><div><b>Toilettes entièrement refaites</b><span class="mute">Nouveau carrelage, WC suspendu et meuble lave-mains.</span></div></li>
+      <li><span class="n">3</span><div><b>Faux plafond et éclairage</b><span class="mute">Plafond en placo avec spots et éclairage LED indirect, dans le séjour, le couloir et les chambres.</span></div></li>
+    </ol>
+  </div>
+</div></section>
+
+<section class="band" id="equipements"><div class="wrap">
+  <div class="kicker"><b>Équipements</b></div>
+  <h2>Ce qui est compris.</h2>
+  <div class="eq">
+    <div><h3>Dans l'appartement</h3><ul>
+      <li><span>Chauffage central</span><span>radiateurs dans les pièces</span></li>
+      <li><span>Climatisation</span><span>2 climatiseurs</span></li>
+      <li><span>Cuisine équipée</span><span>four, plaque, hotte, meubles</span></li>
+      <li><span>Salle de bain</span><span>douche à l'italienne</span></li>
+      <li><span>Plafonds</span><span>placo + éclairage LED</span></li>
+      <li><span>Fenêtres</span><span>PVC avec volets roulants</span></li>
+      <li><span>Balcons</span><span>2, dont un côté cuisine</span></li>
+      <li><span>Rangements</span><span>placards dans le couloir</span></li>
+    </ul></div>
+    <div><h3>Dans l'immeuble</h3><ul>
+      <li><span>Ascenseurs</span><span>2</span></li>
+      <li><span>Parking</span><span>oui</span></li>
+      <li><span>Gardien</span><span>oui</span></li>
+      <li><span>Caméras de surveillance</span><span>oui</span></li>
+      <li><span>Interphone</span><span>oui</span></li>
+    </ul>
+    <p class="small mute" style="margin-top:16px">Appartement loué non meublé, cuisine équipée.</p></div>
+  </div>
+</div></section>
+
+<section class="band" id="photos"><div class="wrap">
+  <div class="ghead">
+    <div><div class="kicker"><b>Photos</b><span id="ptotal"></span></div><h2>Pièce par pièce.</h2></div>
+    <div class="gnav"><span class="count" id="gcount"></span>
+      <button type="button" id="gprev" aria-label="Photo précédente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 5-7 7 7 7"/></svg></button>
+      <button type="button" id="gnext" aria-label="Photo suivante"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 5 7 7-7 7"/></svg></button></div>
+  </div>
+  <div class="tabs" role="tablist" id="roomTabs" style="margin-top:24px"></div>
+  <div class="strip" id="strip"></div>
+</div></section>
+
+<section class="band" id="quartier"><div class="wrap">
+  <div class="kicker"><b>Le quartier</b><span>L'Appreval, Kouba</span></div>
+  <h2>Le métro à 600 m. <i>La Rocade Sud</i> au pied de l'immeuble.</h2>
+  <p class="lead mute" style="margin-top:14px">La tour est à l'entrée de la Rocade Sud et à quelques minutes à pied de la ligne 1 du métro (stations Gué de Constantine et Les Ateliers). Écoles, marché, pharmacies et commissariat sont à moins de 500 m.</p>
+  <div class="mapgrid">
+    <div class="mapbox"><svg id="map" viewBox="-360 -250 720 500" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Carte du quartier autour de la Tour 4"></svg>
+      <div class="legend"><span><i></i>Rocade / autoroute</span><span><i class="m"></i>Métro ligne 1</span><span><i class="t"></i>L'appartement</span></div></div>
+    <div class="side">
+      <div class="cats" id="cats"></div>
+      <ul class="plist" id="plist"></ul>
+    </div>
+  </div>
+  <div class="drive" id="drive"></div>
+  <p class="notes">Distances à vol d'oiseau depuis la Tour 4 et temps à pied estimés. Temps en voiture estimés hors heures de pointe. Fond de carte et lieux : © contributeurs OpenStreetMap.</p>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap cgrid">
+  <div>
+    <h2>Une visite&nbsp;? Appelez ou écrivez.</h2>
+    <div class="phone">0770 10 50 69</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <a class="btn" id="wa" href="#">WhatsApp</a>
+      <a class="btn ghost" href="tel:+213770105069">Appeler</a>
+      <a class="btn ghost" id="ok" href="#" hidden>Voir l'annonce Ouedkniss</a>
+    </div>
+  </div>
+  <dl>
+    <div><dt>Loyer</dt><dd>120 000 DA / mois, négociable</dd></div>
+    <div><dt>Surface</dt><dd>120 m²</dd></div>
+    <div><dt>Pièces</dt><dd>3 chambres, salon, salle à manger</dd></div>
+    <div><dt>Étage</dt><dd>12ᵉ, 2 ascenseurs</dd></div>
+    <div><dt>Adresse</dt><dd>Cité LPP L'Appreval, Tour 4, Kouba</dd></div>
+  </dl>
+</div></section>
+</main>
+<footer><div class="wrap">Appartement à louer par le propriétaire · L'Appreval, Kouba, Alger</div></footer>
+<div class="mbar" aria-label="Contact rapide"><div><b>120 000 DA</b><span>/ mois · négociable</span></div><a class="btn ghost" href="tel:+213770105069">Appeler</a><a class="btn" id="waBar" href="#contact">WhatsApp</a></div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo en grand">
+  <img id="lbImg" alt="">
+  <p id="lbCap"></p>
+  <button class="x" type="button" id="lbX" aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <button class="pv" type="button" id="lbP" aria-label="Précédente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 5-7 7 7 7"/></svg></button>
+  <button class="nx" type="button" id="lbN" aria-label="Suivante"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 5 7 7-7 7"/></svg></button>
+</div>
+
+<script src="map-data.js"></script>
+<script>
+{
+const OUEDKNISS='';
+const PHONE='213770105069';
+const waMsg=encodeURIComponent("Bonjour, je suis intéressé(e) par l'appartement à louer à L'Appreval (Tour 4, 12e étage). Est-il toujours disponible ?");
+const waUrl='https://wa.me/'+PHONE+'?text='+waMsg;
+document.getElementById('wa').href=waUrl;document.getElementById('waTop').href=waUrl;document.getElementById('waBar').href=waUrl;
+if(OUEDKNISS){const o=document.getElementById('ok');o.href=OUEDKNISS;o.hidden=false}
+const $=id=>document.getElementById(id);
+
+/* ---------- avant / après ---------- */
+const PAIRS=[
+ {t:'Salle de bain',b:'avant-salle-de-bain-avant',a:'salle-de-bain-2',p:0},
+ {t:'Toilettes',b:'avant-toilette-avant',a:'toilette',p:1},
+ {t:'Couloir',b:'avant-couloir-avant',a:'couloir',p:1},
+ {t:'Chambre',b:'avant-chambre-dressing-avant',a:'chambre-parental',p:0}];
+const cmp=$('cmp'),rng=$('baRange');
+$('baTabs').innerHTML=PAIRS.map((x,i)=>`<button type="button" role="tab" aria-selected="${i?'false':'true'}" data-i="${i}">${x.t}</button>`).join('');
+function setPair(i){const x=PAIRS[i];$('bef').src='full/'+x.b+'.jpg';$('aft').src='full/'+x.a+'.jpg';$('bef').alt=x.t+', avant les travaux';$('aft').alt=x.t+', après les travaux';cmp.classList.toggle('portrait',!!x.p);rng.value=50;cmp.style.setProperty('--p','50%');
+ $('baTabs').querySelectorAll('button').forEach((b,j)=>b.setAttribute('aria-selected',j===i))}
+$('baTabs').addEventListener('click',e=>{const b=e.target.closest('button');if(b)setPair(+b.dataset.i)});
+rng.addEventListener('input',()=>cmp.style.setProperty('--p',rng.value+'%'));
+setPair(0);
+
+/* ---------- galerie ---------- */
+const ROOMS=[
+ ['Séjour',[['salon-et-salle-a-manger','Salon et salle à manger'],['salon','Salon'],['salon-2','Salon'],['fenetre-salle-a-manger-et-porte-balcon','Salle à manger, accès au balcon'],['fenetre-salle-a-manger-2','Salle à manger, vue'],['fenetre-salle-a-manger','Fenêtre de la salle à manger']]],
+ ['Cuisine',[['cuisine-2','Cuisine équipée'],['cuisine-3','Four et plaque de cuisson'],['cuisine','Cuisine'],['balcon-cuisine','Balcon côté cuisine']]],
+ ['Chambres',[['chambre-parental','Chambre parentale'],['chambre-parental-2','Chambre parentale'],['chambre-parental-3','Chambre parentale'],['chambre-parental-vue','Chambre parentale, vue'],['2-eme-chambre','Deuxième chambre'],['2eme-chambre-2','Deuxième chambre'],['3eme-chambre','Troisième chambre']]],
+ ['Salle de bain et WC',[['salle-de-bain-2','Salle de bain, douche à l\'italienne'],['salle-de-bain-4','Salle de bain'],['salle-de-bain','Salle de bain, sèche-serviettes'],['salle-de-bain-3','Salle de bain'],['salle-de-bain-5','Salle de bain'],['toilette','Toilettes']]],
+ ['Couloir et rangements',[['couloir-dressing','Couloir et placards'],['couloir-dressing-2','Couloir et placards'],['couloir-dressing-3','Couloir, éclairage LED'],['couloir','Couloir'],['couloir-2','Couloir'],['porte-entree','Entrée, interphone']]],
+ ['Balcons et vue',[['vue-balcon','Vue depuis le balcon'],['vue-balcon-2','Vue sur la Rocade et Kouba'],['vue-balcon-3','Vue depuis le balcon'],['balcon','Balcon']]]];
+const PORTRAIT=new Set(['2-eme-chambre','3eme-chambre','balcon','couloir-2','couloir-dressing-2','couloir-dressing-3','couloir-dressing','couloir','salle-de-bain-3','salle-de-bain','toilette','vue-balcon-2','vue-balcon-3']);
+const ALL=ROOMS.flatMap(r=>r[1]);
+$('ptotal').textContent=ALL.length+' photos';
+let room=0;const strip=$('strip');
+$('roomTabs').innerHTML=ROOMS.map((r,i)=>`<button type="button" role="tab" aria-selected="${i?'false':'true'}" data-i="${i}">${r[0]} <span class="mute">${r[1].length}</span></button>`).join('');
+function renderRoom(i){room=i;$('roomTabs').querySelectorAll('button').forEach((b,j)=>b.setAttribute('aria-selected',j===i));
+ strip.innerHTML=ROOMS[i][1].map(([f,c])=>`<button type="button" class="${PORTRAIT.has(f)?'p':''}" data-f="${f}"><img src="sm/${f}.jpg" alt="${c}" loading="lazy"><figcaption>${c}</figcaption></button>`).join('');
+ strip.scrollTo({left:0});updCount()}
+function updCount(){const items=[...strip.children];const sl=strip.scrollLeft;let k=0;items.forEach((b,j)=>{if(b.offsetLeft-strip.offsetLeft<=sl+8)k=j});$('gcount').textContent=(k+1)+' / '+items.length}
+function step(d){const items=[...strip.children];const sl=strip.scrollLeft;let k=0;items.forEach((b,j)=>{if(b.offsetLeft-strip.offsetLeft<=sl+8)k=j});const n=Math.max(0,Math.min(items.length-1,k+d));items[n].scrollIntoView({behavior:'smooth',block:'nearest',inline:'start'})}
+$('roomTabs').addEventListener('click',e=>{const b=e.target.closest('button');if(b)renderRoom(+b.dataset.i)});
+$('gprev').onclick=()=>step(-1);$('gnext').onclick=()=>step(1);
+strip.addEventListener('scroll',()=>requestAnimationFrame(updCount),{passive:true});
+strip.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();step(1)}if(e.key==='ArrowLeft'){e.preventDefault();step(-1)}});
+renderRoom(0);
+/* lightbox */
+const lb=$('lb');let li=0;
+function show(k){li=(k+ALL.length)%ALL.length;const [f,c]=ALL[li];$('lbImg').src='full/'+f+'.jpg';$('lbImg').alt=c;$('lbCap').textContent=c+' · '+(li+1)+' / '+ALL.length}
+strip.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;show(ALL.findIndex(x=>x[0]===b.dataset.f));lb.classList.add('on');$('lbX').focus()});
+const close=()=>lb.classList.remove('on');
+$('lbX').onclick=close;$('lbP').onclick=()=>show(li-1);$('lbN').onclick=()=>show(li+1);
+lb.addEventListener('click',e=>{if(e.target===lb)close()});
+document.addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key==='Escape')close();if(e.key==='ArrowRight')show(li+1);if(e.key==='ArrowLeft')show(li-1)});
+let tx=null;lb.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});lb.addEventListener('touchend',e=>{if(tx==null)return;const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)show(li+(dx<0?1:-1));tx=null});
+
+/* ---------- carte ---------- */
+const LA0=36.714633,LO0=3.091962,KX=Math.cos(LA0*Math.PI/180)*111320/6,KY=110540/6;
+const xy=(la,lo)=>[(lo-LO0)*KX,-(la-LA0)*KY];
+const dist=(la,lo)=>{const R=6371000,r=Math.PI/180,a=Math.sin((la-LA0)*r/2)**2+Math.cos(LA0*r)*Math.cos(la*r)*Math.sin((lo-LO0)*r/2)**2;return 2*R*Math.asin(Math.sqrt(a))};
+const CATS=[['tr','Transports'],['sa','Santé'],['ec','Écoles'],['co','Commerces'],['se','Services'],['sp','Sport']];
+const POI=[
+ ['tr','Métro Gué de Constantine','Ligne 1',36.70961,3.09020],
+ ['tr','Métro Les Ateliers','Ligne 1',36.71552,3.10081],
+ ['tr','Métro Aïn Naâdja','Ligne 1',36.70574,3.08228],
+ ['tr','Métro Haï El Badr','Ligne 1',36.72543,3.10227],
+ ['tr','Accès Rocade Sud','Bretelle au pied de la cité',36.71319,3.09085],
+ ['tr','Échangeur Autoroute Nord-Sud','Vers l\'A1 et El Harrach',36.71390,3.10065],
+ ['sa','Pharmacie Bel Khatir','Une dizaine de pharmacies à moins d\'1 km',36.71099,3.08947],
+ ['sa','Clinique Kardia','Clinique privée',36.70937,3.09728],
+ ['sa','Polyclinique Haï El Badr','',36.72090,3.10175],
+ ['sa','Polyclinique Aïn Naâdja','',36.70828,3.08246],
+ ['sa','Hôpital Bachir Mentouri (Kouba)','EHS',36.72611,3.08665],
+ ['sa','Hôpital militaire d\'Aïn Naâdja','',36.71903,3.06488],
+ ['ec','École primaire Malek Bennabi','',36.71639,3.09446],
+ ['ec','Lycée Bahia Hidour','',36.71254,3.08980],
+ ['ec','École Mahfoud Djermani','',36.71047,3.09127],
+ ['ec','CFPA Belaalem Saïd','Formation professionnelle',36.71759,3.09311],
+ ['ec','Crèche Soleil du jour','',36.70791,3.09395],
+ ['ec','École nationale supérieure des travaux publics','ENSTP',36.72610,3.06859],
+ ['ec','École normale supérieure de Kouba','',36.73111,3.07345],
+ ['co','Boulangerie','',36.71545,3.09334],
+ ['co','Marché Nassim','Marché de quartier',36.71085,3.09208],
+ ['co','Marché El Hayat','Supérette',36.70548,3.09423],
+ ['co','Centre commercial Taïba','',36.71597,3.10863],
+ ['co','Marché Ben Omar','',36.72799,3.08788],
+ ['se','Commissariat de police','Police nationale',36.71144,3.09278],
+ ['se','Bureau de poste','Kouba Cité Semrouni',36.71841,3.09073],
+ ['se','Société Générale Algérie','Banque',36.71268,3.08673],
+ ['se','BNP Paribas El Djazaïr','Banque',36.71252,3.08644],
+ ['se','Mosquée Abdallah Ben Messoud','',36.70936,3.09082],
+ ['se','Mosquée El Wafaa Bil Ahd','L\'Appreval',36.72265,3.09204],
+ ['se','Station-service City Badr','',36.72030,3.09304],
+ ['se','Mairie de Kouba','',36.71240,3.08456],
+ ['sp','Salle Amazone','Salle de sport',36.71013,3.09153],
+ ['sp','Tennis Club de Bachdjarah','',36.71825,3.10727],
+ ['sp','Stade Omar Benhaddad','',36.72955,3.09047],
+ ['sp','Piscine de Kouba','',36.72978,3.09444]
+].map(p=>({c:p[0],n:p[1],s:p[2],la:p[3],lo:p[4],d:dist(p[3],p[4])}));
+const fmtD=d=>d<1000?(Math.round(d/10)*10)+' m':(d/1000).toFixed(1).replace('.',',')+' km';
+const walk=d=>Math.max(2,Math.round(d*1.3/80))+' min à pied';
+const svg=$('map'),NS='http://www.w3.org/2000/svg';
+const ring=(m,lbl)=>{const r=m/6;return `<circle r="${r}" fill="none" stroke="var(--ink)" stroke-opacity=".28" stroke-dasharray="3 5"/><text x="0" y="${-r-6}" text-anchor="middle" font-size="11" fill="var(--mute)" font-family="Inter">${lbl}</text>`};
+const D=window.MAPD||{};
+const AREA=[['Gué de Constantine',70,205],['Bachdjarah',265,-60],['Aïn Naâdja',-240,185]];
+svg.innerHTML=`<rect x="-2000" y="-2000" width="4000" height="4000" fill="var(--map)"/>
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="${D.res||''}" stroke="var(--minor)" stroke-width="1"/>
+<path d="${D.ter||''}" stroke="var(--minor)" stroke-width="1.6"/>
+<path d="${D.sec||''}" stroke="var(--minor)" stroke-width="2.4"/>
+<path d="${D.pri||''}" stroke="var(--road)" stroke-opacity=".45" stroke-width="2.2"/>
+<path d="${D.rail||''}" stroke="var(--road)" stroke-opacity=".35" stroke-width="1.4" stroke-dasharray="1 4"/>
+<path d="${D.lnk||''}" stroke="var(--road)" stroke-opacity=".85" stroke-width="1.6"/>
+<path d="${D.mw||''}" stroke="var(--road)" stroke-width="3.6"/>
+<path d="${D.metro||''}" stroke="var(--road)" stroke-width="1.8" stroke-dasharray="5 4" opacity=".75"/>
+</g>
+<g font-family="Inter" font-size="12" fill="var(--mute)" font-style="italic">${AREA.map(a=>`<text x="${a[1]}" y="${a[2]}" text-anchor="middle" paint-order="stroke" stroke="var(--map)" stroke-width="4">${a[0]}</text>`).join('')}</g>
+<g font-family="Inter Tight" font-weight="600" font-size="12.5" fill="var(--ink)" paint-order="stroke" stroke="var(--map)" stroke-width="4">
+<text transform="translate(-300 -112) rotate(34)">Rocade Sud</text>
+<text transform="translate(305 175) rotate(42)">Rocade Sud</text>
+<text transform="translate(146 -64) rotate(-58)">Autoroute Nord-Sud</text>
+</g>
+<g>${ring(500,'500 m')}${ring(1000,'1 km')}${ring(1500,'1,5 km')}</g>
+<g id="far"></g>
+<g id="pois"></g>
+<g id="home"><circle class="pulse" r="8" fill="var(--ochre)"/><rect x="-9" y="-9" width="18" height="18" rx="3" fill="var(--ochre)" stroke="var(--ink)" stroke-width="2"/>
+<g transform="translate(14 -16)"><rect x="0" y="-15" width="94" height="24" rx="3" fill="var(--ink)"/><text x="8" y="2" font-family="Inter Tight" font-weight="600" font-size="13" fill="var(--bg)">Tour 4 · 12ᵉ</text></g></g>`;
+/* cadrage selon la largeur */
+const small=svg.clientWidth<600;const VB=small?[-250,-215,500,430]:[-360,-250,720,500];
+svg.setAttribute('viewBox',VB.join(' '));svg.parentNode.style.aspectRatio=VB[2]+'/'+VB[3];
+const BX=VB[2]/2-28,BY=VB[3]/2-30;
+/* flèches vers les destinations lointaines */
+const FAR=[['Centre-ville',36.7725,3.0590],['Hydra',36.744,3.030],['Ardis',36.73926,3.14278],['Aéroport',36.69801,3.20212]];
+$('far').innerHTML=FAR.map(([n,la,lo])=>{const [x,y]=xy(la,lo);const L=Math.hypot(x,y),ux=x/L,uy=y/L;const t=Math.min(BX/Math.abs(ux||1e-9),BY/Math.abs(uy||1e-9));const px=ux*t,py=uy*t,a=Math.atan2(uy,ux)*180/Math.PI;
+ const tx=px-ux*16,ty=py-uy*16;const anchor=ux>0.3?'end':ux<-0.3?'start':'middle';
+ return `<g><path d="M0 -6L12 0L0 6z" transform="translate(${px} ${py}) rotate(${a})" fill="var(--ink)"/><text x="${tx}" y="${ty+4}" text-anchor="${anchor}" font-family="Inter Tight" font-weight="600" font-size="12" fill="var(--ink)" paint-order="stroke" stroke="var(--map)" stroke-width="4">${n}</text></g>`}).join('');
+let cat='tr',hot=-1;
+$('cats').innerHTML=CATS.map(([k,l])=>`<button type="button" data-k="${k}" aria-pressed="${k===cat}">${l}</button>`).join('');
+function draw(){const list=POI.filter(p=>p.c===cat).sort((a,b)=>a.d-b.d);
+ $('cats').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===cat));
+ const others=POI.filter(p=>p.c!==cat).map(p=>{const [x,y]=xy(p.la,p.lo);return `<circle cx="${x}" cy="${y}" r="2.6" fill="var(--ink)" opacity=".35"/>`}).join('');
+ const mine=list.map((p,i)=>{const [x,y]=xy(p.la,p.lo);const on=i===hot;return `<g data-i="${i}" style="cursor:pointer"><circle cx="${x}" cy="${y}" r="${on?13:10}" fill="${on?'var(--ink)':'var(--ochre)'}" stroke="var(--ink)" stroke-width="1.5"/><text x="${x}" y="${y+4}" text-anchor="middle" font-family="Inter Tight" font-weight="600" font-size="11" fill="${on?'var(--bg)':'#151412'}">${i+1}</text>${on?`<text x="${x}" y="${y-19}" text-anchor="middle" font-family="Inter" font-weight="600" font-size="12" fill="var(--ink)" paint-order="stroke" stroke="var(--map)" stroke-width="4">${p.n}</text>`:''}</g>`}).join('');
+ $('pois').innerHTML=others+mine;
+ $('plist').innerHTML=list.map((p,i)=>`<li data-i="${i}" class="${i===hot?'on':''}"><span class="no">${i+1}</span><span class="nm">${p.n}${p.s?`<small>${p.s}</small>`:''}</span><span class="ds">${fmtD(p.d)}<small>${walk(p.d)}</small></span></li>`).join('')}
+$('cats').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;cat=b.dataset.k;hot=-1;draw()});
+$('plist').addEventListener('mouseover',e=>{const l=e.target.closest('li');if(l&&+l.dataset.i!==hot){hot=+l.dataset.i;draw()}});
+$('plist').addEventListener('click',e=>{const l=e.target.closest('li');if(l){hot=+l.dataset.i;draw()}});
+$('pois').addEventListener('click',e=>{const g=e.target.closest('g[data-i]');if(g){hot=+g.dataset.i;draw();const li=$('plist').children[hot];li&&li.scrollIntoView({block:'nearest'})}});
+draw();
+/* en voiture */
+const DRIVE=[['15 min','Centre-ville','Grande Poste · 9,4 km'],['20 min','Aéroport d\'Alger','14,5 km'],['15 min','Ardis et Djamaâ El Djazaïr','Mohammadia · 7,5 km'],['20 min','Centre commercial Bab Ezzouar','12,3 km'],['15 min','Hydra','8,7 km'],['10 min','Hôpital militaire d\'Aïn Naâdja','4,4 km']];
+$('drive').innerHTML=DRIVE.map(d=>`<div><b>${d[0]}</b><span>${d[1]}</span><small>${d[2]} en voiture</small></div>`).join('');
+}
+</script>
+</body>
+</html>
